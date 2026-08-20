@@ -153,7 +153,6 @@
     }
     .service-item i { color: #c84b31; font-size: 15px; }
 
-    /* Interactive 8-Image Grid */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -187,7 +186,6 @@
       color: #333333;
     }
 
-    /* Video Player Wrapper */
     .video-wrapper {
       position: relative;
       width: 100%;
@@ -199,7 +197,6 @@
     }
     .video-wrapper video { width: 100%; display: block; }
 
-    /* Lightbox Modal */
     .lightbox-modal {
       display: none;
       position: fixed;
@@ -288,10 +285,8 @@
 
   <div class="card-container">
     
-    <!-- Banner Header -->
     <div class="header-banner"></div>
 
-    <!-- Profile Header -->
     <div class="profile-section">
       <img src="logo.png" alt="Siddhi Digital Logo" class="profile-img" onerror="this.onerror=null; this.src='Logo.png';">
       <h2>Siddhi Digital</h2>
@@ -299,7 +294,6 @@
       <span class="tagline">Smart Digital Solutions</span>
     </div>
 
-    <!-- Action Buttons -->
     <div class="action-grid">
       <a href="tel:+919970279238" class="action-btn">
         <div class="action-icon bg-call"><i class="fa-solid fa-phone"></i></div>
@@ -319,7 +313,6 @@
       </a>
     </div>
 
-    <!-- Invitation Website Feature Link -->
     <div class="content-box">
       <a href="https://siddhidigitalinvite.in/" target="_blank" class="invite-banner-btn">
         <div class="btn-text">
@@ -330,7 +323,6 @@
       </a>
     </div>
 
-    <!-- About Section -->
     <div class="content-box" style="padding-top: 0;">
       <h3 class="section-title">About Us</h3>
       <p class="about-text">
@@ -338,7 +330,6 @@
       </p>
     </div>
 
-    <!-- Services Section -->
     <div class="content-box" style="padding-top: 0;">
       <h3 class="section-title">Our Services</h3>
       <div class="service-item"><i class="fa-solid fa-id-card"></i> Digital Business Cards</div>
@@ -347,61 +338,72 @@
       <div class="service-item"><i class="fa-solid fa-bullhorn"></i> Business Branding & Poster Design</div>
     </div>
 
-    <!-- All 8 Photos in Work Gallery -->
+    <!-- 10 Gallery Photos -->
     <div class="content-box" style="padding-top: 0;">
       <h3 class="section-title">Our Work Gallery</h3>
       <div class="gallery-grid">
         
         <div class="gallery-card" onclick="openLightbox('photo.jpg')">
-          <img src="photo.jpg" alt="Design 1">
+          <img src="photo.jpg" alt="Design 1" onerror="this.onerror=null; this.src='Photo.jpg';">
           <div class="gallery-title">Digital Cards</div>
         </div>
 
         <div class="gallery-card" onclick="openLightbox('photo1.jpg')">
-          <img src="photo1.jpg" alt="Design 2">
+          <img src="photo1.jpg" alt="Design 2" onerror="this.onerror=null; this.src='Photo1.jpg';">
           <div class="gallery-title">Digital Invites</div>
         </div>
 
         <div class="gallery-card" onclick="openLightbox('photo2.jpg')">
-          <img src="photo2.jpg" alt="Design 3">
+          <img src="photo2.jpg" alt="Design 3" onerror="this.onerror=null; this.src='Photo2.jpg';">
           <div class="gallery-title">Posters & Branding</div>
         </div>
 
         <div class="gallery-card" onclick="openLightbox('photo3.jpg')">
-          <img src="photo3.jpg" alt="Design 4">
+          <img src="photo3.jpg" alt="Design 4" onerror="this.onerror=null; this.src='Photo3.jpg';">
           <div class="gallery-title">Digital Vargani</div>
         </div>
 
         <div class="gallery-card" onclick="openLightbox('photo4.jpg')">
-          <img src="photo4.jpg" alt="Design 5">
+          <img src="photo4.jpg" alt="Design 5" onerror="this.onerror=null; this.src='Photo4.jpg';">
           <div class="gallery-title">Event Invitation</div>
         </div>
 
         <div class="gallery-card" onclick="openLightbox('photo5.jpg')">
-          <img src="photo5.jpg" alt="Design 6">
+          <img src="photo5.jpg" alt="Design 6" onerror="this.onerror=null; this.src='Photo5.jpg';">
           <div class="gallery-title">Business Promo</div>
         </div>
 
         <div class="gallery-card" onclick="openLightbox('photo6.jpg')">
-          <img src="photo6.jpg" alt="Design 7">
+          <img src="photo6.jpg" alt="Design 7" onerror="this.onerror=null; this.src='Photo6.jpg';">
           <div class="gallery-title">Social Media Post</div>
         </div>
 
         <div class="gallery-card" onclick="openLightbox('photo7.jpg')">
-          <img src="photo7.jpg" alt="Design 8">
+          <img src="photo7.jpg" alt="Design 8" onerror="this.onerror=null; this.src='Photo7.jpg';">
           <div class="gallery-title">Custom Design</div>
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox('photo8.jpg')">
+          <img src="photo8.jpg" alt="Design 9" onerror="this.onerror=null; this.src='Photo8.jpg';">
+          <div class="gallery-title">Special Invite</div>
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox('photo9.jpg')">
+          <img src="photo9.jpg" alt="Design 10" onerror="this.onerror=null; this.src='Photo9.jpg';">
+          <div class="gallery-title">Branding Design</div>
         </div>
 
       </div>
     </div>
 
-    <!-- All 5 Promo Videos -->
+    <!-- 6 Promo Videos -->
     <div class="content-box" style="padding-top: 0;">
       <h3 class="section-title">Promo Videos</h3>
       
       <div class="video-wrapper">
         <video controls playsinline preload="metadata">
           <source src="video.mp4" type="video/mp4">
+          <source src="Video.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -409,6 +411,7 @@
       <div class="video-wrapper">
         <video controls playsinline preload="metadata">
           <source src="video1.mp4" type="video/mp4">
+          <source src="Video1.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -416,6 +419,7 @@
       <div class="video-wrapper">
         <video controls playsinline preload="metadata">
           <source src="video2.mp4" type="video/mp4">
+          <source src="Video2.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -423,6 +427,7 @@
       <div class="video-wrapper">
         <video controls playsinline preload="metadata">
           <source src="video3.mp4" type="video/mp4">
+          <source src="Video3.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -430,13 +435,21 @@
       <div class="video-wrapper">
         <video controls playsinline preload="metadata">
           <source src="video4.mp4" type="video/mp4">
+          <source src="Video4.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="video-wrapper">
+        <video controls playsinline preload="metadata">
+          <source src="video5.mp4" type="video/mp4">
+          <source src="Video5.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
 
     </div>
 
-    <!-- Lead Generation Form -->
     <div class="content-box" style="padding-top: 0;">
       <h3 class="section-title">Inquire Now</h3>
       <form action="https://formspree.io/f/meeynezw" method="POST" class="lead-form">
@@ -447,7 +460,6 @@
       </form>
     </div>
 
-    <!-- Social Links -->
     <div class="content-box" style="padding-top: 0; text-align: center;">
       <h3 class="section-title" style="text-align: left;">Connect With Us</h3>
       <div class="social-links">
@@ -458,14 +470,12 @@
       </div>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
       © 2026 Siddhi Digital. All Rights Reserved.
     </div>
 
   </div>
 
-  <!-- Fullscreen Lightbox Modal -->
   <div id="lightbox" class="lightbox-modal" onclick="closeLightbox()">
     <span class="lightbox-close">&times;</span>
     <img id="lightbox-img" class="lightbox-content" src="" alt="Zoomed Work">
