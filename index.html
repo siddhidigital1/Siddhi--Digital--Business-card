@@ -32,7 +32,7 @@
       box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
     }
     .header-banner {
-      background: linear-gradient(135deg, #1b2838, #30475e);
+      background: linear-gradient(135deg, #c84b31, #e06347);
       height: 125px;
       position: relative;
     }
@@ -40,15 +40,19 @@
       text-align: center;
       margin-top: -55px;
       padding: 0 20px 15px;
+      position: relative;
+      z-index: 2;
     }
     .profile-img {
-      width: 105px;
-      height: 105px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       border: 4px solid #ffffff;
       background: #ffffff;
-      object-fit: cover;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      object-fit: contain;
+      padding: 6px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      display: inline-block;
     }
     .profile-section h2 {
       font-size: 22px;
@@ -149,6 +153,7 @@
     }
     .service-item i { color: #c84b31; font-size: 15px; }
 
+    /* Interactive 8-Image Grid */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -162,6 +167,12 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
       border: 1px solid #f0f0f0;
       text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .gallery-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
     .gallery-card img {
       width: 100%;
@@ -176,6 +187,7 @@
       color: #333333;
     }
 
+    /* Video Player Wrapper */
     .video-wrapper {
       position: relative;
       width: 100%;
@@ -183,9 +195,39 @@
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       background: #000000;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
     .video-wrapper video { width: 100%; display: block; }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 85vh;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      color: #ffffff;
+      font-size: 32px;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
     .lead-form input, .lead-form textarea {
       width: 100%;
@@ -249,7 +291,7 @@
     <!-- Banner Header -->
     <div class="header-banner"></div>
 
-    <!-- Profile Header (Loads logo.png directly) -->
+    <!-- Profile Header -->
     <div class="profile-section">
       <img src="logo.png" alt="Siddhi Digital Logo" class="profile-img" onerror="this.onerror=null; this.src='Logo.png';">
       <h2>Siddhi Digital</h2>
@@ -305,42 +347,61 @@
       <div class="service-item"><i class="fa-solid fa-bullhorn"></i> Business Branding & Poster Design</div>
     </div>
 
-    <!-- Work Gallery (Direct root files) -->
+    <!-- All 8 Photos in Work Gallery -->
     <div class="content-box" style="padding-top: 0;">
       <h3 class="section-title">Our Work Gallery</h3>
       <div class="gallery-grid">
         
-        <div class="gallery-card">
-          <img src="photo.jpg" alt="Digital Cards" onerror="this.onerror=null; this.src='Photo.jpg';">
+        <div class="gallery-card" onclick="openLightbox('photo.jpg')">
+          <img src="photo.jpg" alt="Design 1">
           <div class="gallery-title">Digital Cards</div>
         </div>
 
-        <div class="gallery-card">
-          <img src="photo1.jpg" alt="Digital Invites" onerror="this.onerror=null; this.src='Photo1.jpg';">
+        <div class="gallery-card" onclick="openLightbox('photo1.jpg')">
+          <img src="photo1.jpg" alt="Design 2">
           <div class="gallery-title">Digital Invites</div>
         </div>
 
-        <div class="gallery-card">
-          <img src="photo2.jpg" alt="Posters & Branding" onerror="this.onerror=null; this.src='Photo2.jpg';">
+        <div class="gallery-card" onclick="openLightbox('photo2.jpg')">
+          <img src="photo2.jpg" alt="Design 3">
           <div class="gallery-title">Posters & Branding</div>
         </div>
 
-        <div class="gallery-card">
-          <img src="photo3.jpg" alt="Digital Vargani" onerror="this.onerror=null; this.src='Photo3.jpg';">
+        <div class="gallery-card" onclick="openLightbox('photo3.jpg')">
+          <img src="photo3.jpg" alt="Design 4">
           <div class="gallery-title">Digital Vargani</div>
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox('photo4.jpg')">
+          <img src="photo4.jpg" alt="Design 5">
+          <div class="gallery-title">Event Invitation</div>
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox('photo5.jpg')">
+          <img src="photo5.jpg" alt="Design 6">
+          <div class="gallery-title">Business Promo</div>
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox('photo6.jpg')">
+          <img src="photo6.jpg" alt="Design 7">
+          <div class="gallery-title">Social Media Post</div>
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox('photo7.jpg')">
+          <img src="photo7.jpg" alt="Design 8">
+          <div class="gallery-title">Custom Design</div>
         </div>
 
       </div>
     </div>
 
-    <!-- Promo Videos (Direct root files) -->
+    <!-- All 5 Promo Videos -->
     <div class="content-box" style="padding-top: 0;">
       <h3 class="section-title">Promo Videos</h3>
       
       <div class="video-wrapper">
         <video controls playsinline preload="metadata">
           <source src="video.mp4" type="video/mp4">
-          <source src="Video.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -348,7 +409,27 @@
       <div class="video-wrapper">
         <video controls playsinline preload="metadata">
           <source src="video1.mp4" type="video/mp4">
-          <source src="Video1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="video-wrapper">
+        <video controls playsinline preload="metadata">
+          <source src="video2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="video-wrapper">
+        <video controls playsinline preload="metadata">
+          <source src="video3.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="video-wrapper">
+        <video controls playsinline preload="metadata">
+          <source src="video4.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -383,6 +464,25 @@
     </div>
 
   </div>
+
+  <!-- Fullscreen Lightbox Modal -->
+  <div id="lightbox" class="lightbox-modal" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" class="lightbox-content" src="" alt="Zoomed Work">
+  </div>
+
+  <script>
+    function openLightbox(imageSrc) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = imageSrc;
+      lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
 
 </body>
 </html>
