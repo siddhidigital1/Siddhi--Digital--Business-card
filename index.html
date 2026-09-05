@@ -12,15 +12,16 @@
 
   <style>
     :root {
-      --primary: #1e3a8a;
-      --secondary: #2563eb;
-      --accent: #d97706;
+      --primary: #c27685;       /* Soft dusty rose */
+      --secondary: #d99aa5;     /* Pastel rose */
+      --accent: #b45309;        /* Warm amber accent */
       --surface: #ffffff;
-      --bg: #f8fafc;
-      --text: #0f172a;
-      --muted: #64748b;
-      --line: #e2e8f0;
+      --bg: #fff5f7;            /* Ultra-light blush pink backdrop */
+      --text: #4a3b3e;          /* Soft warm charcoal */
+      --muted: #8c7a7e;         /* Warm muted rose */
+      --line: #fae1e6;          /* Delicate pastel pink line */
       --whatsapp: #25d366;
+      --instagram: #e1306c;     /* Instagram brand color */
     }
 
     * {
@@ -44,13 +45,14 @@
       max-width: 440px;
       background: var(--surface);
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 30px rgba(194, 118, 133, 0.12);
       overflow: hidden;
+      border: 1px solid var(--line);
     }
 
     /* Hero / Profile Section */
     .hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #2563eb 100%);
+      background: linear-gradient(135deg, #f7d6dc 0%, #e8aebb 50%, #d48b99 100%);
       color: #fff;
       text-align: center;
       padding: 26px 20px 24px;
@@ -61,7 +63,9 @@
       top: 14px;
       right: 16px;
       font-size: 11px;
-      background: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.4);
+      color: #63333d;
+      font-weight: 600;
       padding: 3px 10px;
       border-radius: 12px;
       backdrop-filter: blur(4px);
@@ -73,7 +77,7 @@
       border-radius: 50%;
       background: #ffffff;
       border: 4px solid #ffffff;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 16px rgba(194, 118, 133, 0.25);
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -88,20 +92,22 @@
     .hero h1 {
       font-size: 21px;
       font-weight: 700;
+      color: #4a2129;
       letter-spacing: -0.2px;
     }
     .hero .role {
       font-size: 12.5px;
-      opacity: 0.95;
+      color: #63333d;
+      font-weight: 500;
       margin-top: 4px;
       letter-spacing: 0.3px;
     }
 
-    /* Quick Action Row */
+    /* Quick Action Row - 4 Buttons */
     .quick-bar {
       display: flex;
       justify-content: space-around;
-      padding: 14px 20px;
+      padding: 14px 10px;
       background: #ffffff;
       border-bottom: 8px solid var(--line);
     }
@@ -112,18 +118,18 @@
       flex-direction: column;
       align-items: center;
       gap: 5px;
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 600;
     }
     .quick-btn .icon-circle {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 18px;
+      font-size: 17px;
       transition: transform 0.2s;
     }
     .quick-btn:hover .icon-circle {
@@ -131,7 +137,8 @@
     }
     .btn-call { background: var(--secondary); }
     .btn-wa   { background: var(--whatsapp); }
-    .btn-web  { background: #0f172a; }
+    .btn-insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+    .btn-web  { background: var(--primary); }
 
     /* Section Styling */
     .section {
@@ -148,7 +155,7 @@
       gap: 8px;
       position: relative;
       padding-bottom: 8px;
-      border-bottom: 2px solid #e2e8f0;
+      border-bottom: 2px solid var(--line);
     }
     .section-header::after {
       content: '';
@@ -214,7 +221,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border: 1px solid #cbd5e1;
+      border: 1px solid var(--line);
       border-radius: 10px;
       padding: 10px 14px;
       text-decoration: none;
@@ -223,7 +230,7 @@
       margin-bottom: 8px;
     }
     .link-tile:hover {
-      background: #f1f5f9;
+      background: #fff0f3;
     }
     .link-tile-left {
       display: flex;
@@ -251,9 +258,9 @@
       margin-top: 10px;
     }
     .pill {
-      background: #eff6ff;
-      color: var(--primary);
-      border: 1px solid #bfdbfe;
+      background: #fff0f3;
+      color: #8c4150;
+      border: 1px solid #f7cacf;
       padding: 6px 12px;
       border-radius: 20px;
       font-size: 12px;
@@ -262,12 +269,12 @@
 
     /* Collection Cards */
     .product-card {
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--line);
       border-radius: 12px;
       overflow: hidden;
       margin-bottom: 16px;
       background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      box-shadow: 0 2px 8px rgba(194, 118, 133, 0.05);
     }
     .product-body {
       padding: 14px;
@@ -290,7 +297,7 @@
       border-radius: 10px;
       display: block;
       margin-bottom: 12px;
-      box-shadow: 0 3px 10px rgba(30, 58, 138, 0.12);
+      box-shadow: 0 3px 10px rgba(194, 118, 133, 0.12);
     }
     .enquiry-btn {
       display: inline-block;
@@ -312,12 +319,12 @@
     }
     .video-item {
       position: relative;
-      aspect-ratio: 9 / 16; /* Optimized for vertical invitation/reels format */
+      aspect-ratio: 9 / 16;
       border-radius: 10px;
       overflow: hidden;
-      background: #0f172a;
-      border: 1px solid #cbd5e1;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      background: #4a3b3e;
+      border: 1px solid var(--line);
+      box-shadow: 0 2px 6px rgba(194, 118, 133, 0.08);
       cursor: pointer;
     }
     .video-item video {
@@ -325,7 +332,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      pointer-events: none; /* Allows click to trigger lightbox */
+      pointer-events: none;
     }
     .video-play-overlay {
       position: absolute;
@@ -336,23 +343,23 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(15, 23, 42, 0.35);
+      background: rgba(74, 59, 62, 0.3);
       transition: background 0.2s;
     }
     .video-item:hover .video-play-overlay {
-      background: rgba(15, 23, 42, 0.15);
+      background: rgba(74, 59, 62, 0.15);
     }
     .play-badge {
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.92);
       color: var(--primary);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 14px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
       padding-left: 2px;
     }
     .video-tag {
@@ -360,7 +367,7 @@
       bottom: 6px;
       left: 6px;
       right: 6px;
-      background: rgba(0, 0, 0, 0.65);
+      background: rgba(74, 59, 62, 0.7);
       color: #fff;
       font-size: 10px;
       padding: 3px 6px;
@@ -382,15 +389,15 @@
       aspect-ratio: 1 / 1;
       border-radius: 10px;
       overflow: hidden;
-      border: 1px solid #e2e8f0;
-      background: #f1f5f9;
+      border: 1px solid var(--line);
+      background: #fff8f9;
       cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      box-shadow: 0 2px 6px rgba(194, 118, 133, 0.05);
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .gallery-item:hover {
       transform: scale(1.02);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(194, 118, 133, 0.15);
     }
     .gallery-item img {
       width: 100%;
@@ -399,7 +406,7 @@
       display: block;
     }
 
-    /* Lightbox Modal for Images & Videos */
+    /* Lightbox Modal */
     .lightbox-modal {
       display: none;
       position: fixed;
@@ -408,7 +415,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-color: rgba(0, 0, 0, 0.94);
+      background-color: rgba(45, 30, 34, 0.94);
       justify-content: center;
       align-items: center;
       padding: 20px;
@@ -435,10 +442,12 @@
       width: 100%;
       padding: 10px 12px;
       font-size: 13px;
-      border: 1px solid #cbd5e1;
+      border: 1px solid #ebd3d8;
+      background: #fffdfd;
       border-radius: 8px;
       margin-bottom: 10px;
       outline: none;
+      color: var(--text);
     }
     .inquiry-form input:focus,
     .inquiry-form textarea:focus {
@@ -454,15 +463,19 @@
       font-weight: 600;
       font-size: 13px;
       cursor: pointer;
+      transition: background 0.2s;
+    }
+    .inquiry-form button:hover {
+      background: #b36372;
     }
 
     /* Share Section */
     .share-box {
-      border: 1px dashed #93c5fd;
+      border: 1px dashed #f4b4c0;
       padding: 16px;
       border-radius: 12px;
       text-align: center;
-      background: #eff6ff;
+      background: #fff8f9;
     }
     .qr-img {
       width: 140px;
@@ -470,7 +483,7 @@
       margin: 10px auto;
       display: block;
       border-radius: 8px;
-      border: 1px solid #bfdbfe;
+      border: 1px solid #f7cacf;
       padding: 4px;
       background: #fff;
     }
@@ -493,7 +506,8 @@
       flex: 1;
       padding: 8px 10px;
       font-size: 12.5px;
-      border: 1px solid #cbd5e1;
+      border: 1px solid #ebd3d8;
+      background: #fffdfd;
       border-radius: 6px;
       outline: none;
     }
@@ -520,9 +534,9 @@
       display: flex;
       justify-content: space-around;
       padding: 8px 0 10px;
-      box-shadow: 0 -3px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 -3px 12px rgba(194, 118, 133, 0.08);
       z-index: 999;
-      border-top: 1px solid #e2e8f0;
+      border-top: 1px solid var(--line);
     }
     .bottom-tab {
       text-decoration: none;
@@ -556,7 +570,7 @@
       <div class="role">Smart Digital Cards & Creative Invitations</div>
     </div>
 
-    <!-- QUICK CALL/WHATSAPP/WEBSITE BAR -->
+    <!-- QUICK CALL/WHATSAPP/INSTAGRAM/WEBSITE BAR -->
     <div class="quick-bar">
       <a href="tel:+919970279238" class="quick-btn">
         <div class="icon-circle btn-call"><i class="fa-solid fa-phone"></i></div>
@@ -565,6 +579,10 @@
       <a href="https://wa.me/919970279238?text=Hello%20Siddhi%20Digital,%20I%20saw%20your%20digital%20card%20and%20am%20interested%20in%20your%20services." target="_blank" class="quick-btn">
         <div class="icon-circle btn-wa"><i class="fa-brands fa-whatsapp"></i></div>
         WhatsApp
+      </a>
+      <a href="https://www.instagram.com/siddhidigital1?igsi=czA5MjNqbTczNXIx" target="_blank" class="quick-btn">
+        <div class="icon-circle btn-insta"><i class="fa-brands fa-instagram"></i></div>
+        Instagram
       </a>
       <a href="https://siddhidigitalinvite.in/" target="_blank" class="quick-btn">
         <div class="icon-circle btn-web"><i class="fa-solid fa-globe"></i></div>
@@ -582,6 +600,10 @@
         <a href="mailto:poojahukkeri99@gmail.com" class="info-row">
           <i class="fa-solid fa-envelope"></i>
           <span>poojahukkeri99@gmail.com</span>
+        </a>
+        <a href="https://www.instagram.com/siddhidigital1?igsi=czA5MjNqbTczNXIx" target="_blank" class="info-row">
+          <i class="fa-brands fa-instagram" style="color:var(--instagram)"></i>
+          <span>@siddhidigital1</span>
         </a>
         <a href="https://siddhidigitalinvite.in/" target="_blank" class="info-row">
           <i class="fa-solid fa-globe"></i>
@@ -603,6 +625,17 @@
     <div class="section" id="links">
       <div class="section-header">Direct Links</div>
       
+      <a href="https://www.instagram.com/siddhidigital1?igsi=czA5MjNqbTczNXIx" target="_blank" class="link-tile">
+        <div class="link-tile-left">
+          <i class="fa-brands fa-instagram" style="color:var(--instagram); font-size:24px;"></i>
+          <div>
+            <div class="link-tile-title">Follow on Instagram</div>
+            <div class="link-tile-desc">@siddhidigital1 • Latest reels, designs & updates</div>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-right" style="color:var(--secondary); font-size: 13px;"></i>
+      </a>
+
       <a href="https://siddhidigitalinvite.in/" target="_blank" class="link-tile">
         <div class="link-tile-left">
           <i class="fa-solid fa-globe"></i>
@@ -629,7 +662,7 @@
     <!-- ABOUT US SECTION -->
     <div class="section" id="about">
       <div class="section-header">About Siddhi Digital</div>
-      <p style="font-size: 13px; color: #475569; line-height: 1.6;">
+      <p style="font-size: 13px; color: #5c4c50; line-height: 1.6;">
         Welcome to <strong>Siddhi Digital</strong>. We craft sleek, interactive digital invitation cards, contactless digital business cards, and automated festival collection tools. From weddings and celebrations to Ganeshotsav digital receipt books and QR pamphlets, we modernize your outreach.
       </p>
 
@@ -655,34 +688,34 @@
           <svg class="product-banner-svg" viewBox="0 0 500 240" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="invGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#0f172a" />
-                <stop offset="50%" stop-color="#1e3a8a" />
-                <stop offset="100%" stop-color="#3b82f6" />
+                <stop offset="0%" stop-color="#8c4150" />
+                <stop offset="50%" stop-color="#b86b7b" />
+                <stop offset="100%" stop-color="#e09ea9" />
               </linearGradient>
-              <linearGradient id="goldAcc" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#fde68a" />
-                <stop offset="50%" stop-color="#f59e0b" />
-                <stop offset="100%" stop-color="#fbbf24" />
+              <linearGradient id="softGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fff4db" />
+                <stop offset="50%" stop-color="#edd5a6" />
+                <stop offset="100%" stop-color="#fff8e7" />
               </linearGradient>
             </defs>
             <rect width="500" height="240" rx="14" fill="url(#invGrad)" />
-            <rect x="12" y="12" width="476" height="216" rx="10" fill="none" stroke="url(#goldAcc)" stroke-width="1.8" stroke-dasharray="6,4" opacity="0.8" />
-            <rect x="22" y="22" width="456" height="196" rx="8" fill="rgba(0,0,0,0.25)" stroke="url(#goldAcc)" stroke-width="1" />
+            <rect x="12" y="12" width="476" height="216" rx="10" fill="none" stroke="url(#softGold)" stroke-width="1.8" stroke-dasharray="6,4" opacity="0.85" />
+            <rect x="22" y="22" width="456" height="196" rx="8" fill="rgba(0,0,0,0.12)" stroke="url(#softGold)" stroke-width="1" />
             
-            <g transform="translate(60, 65)" stroke="url(#goldAcc)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="0" y="10" width="60" height="42" rx="4" fill="rgba(245, 158, 11, 0.15)"/>
+            <g transform="translate(60, 65)" stroke="url(#softGold)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="0" y="10" width="60" height="42" rx="4" fill="rgba(255, 244, 219, 0.15)"/>
               <path d="M0 12 L30 35 L60 12"/>
-              <circle cx="30" cy="74" r="10" fill="rgba(245, 158, 11, 0.25)"/>
+              <circle cx="30" cy="74" r="10" fill="rgba(255, 244, 219, 0.25)"/>
               <path d="M30 68 L30 80"/>
               <path d="M24 74 L36 74"/>
             </g>
 
-            <text x="140" y="85" fill="#fde68a" font-family="'Inter', sans-serif" font-size="13" font-weight="700" letter-spacing="2.5">SIDDHI DIGITAL</text>
+            <text x="140" y="85" fill="#fff4db" font-family="'Inter', sans-serif" font-size="13" font-weight="700" letter-spacing="2.5">SIDDHI DIGITAL</text>
             <text x="140" y="120" fill="#ffffff" font-family="'Inter', sans-serif" font-size="21" font-weight="800">DIGITAL INVITATIONS</text>
-            <text x="140" y="148" fill="#e2e8f0" font-family="'Inter', sans-serif" font-size="13" opacity="0.9">Weddings • Birthdays • Anniversaries • Ceremonies</text>
+            <text x="140" y="148" fill="#fff0f3" font-family="'Inter', sans-serif" font-size="13" opacity="0.95">Weddings • Birthdays • Anniversaries • Ceremonies</text>
             
-            <rect x="140" y="165" width="165" height="24" rx="12" fill="url(#goldAcc)" />
-            <text x="222" y="181" fill="#0f172a" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">ONE-TAP RSVP & MAPS</text>
+            <rect x="140" y="165" width="165" height="24" rx="12" fill="url(#softGold)" />
+            <text x="222" y="181" fill="#63333d" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">ONE-TAP RSVP & MAPS</text>
           </svg>
           
           <a href="https://wa.me/919970279238?text=Hi%20Siddhi%20Digital,%20I%20am%20interested%20in%20Digital%20Invitations." target="_blank" class="enquiry-btn">Inquire Now</a>
@@ -698,29 +731,29 @@
           <svg class="product-banner-svg" viewBox="0 0 500 240" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#090d16" />
-                <stop offset="50%" stop-color="#1e293b" />
-                <stop offset="100%" stop-color="#2563eb" />
+                <stop offset="0%" stop-color="#54373d" />
+                <stop offset="50%" stop-color="#7a4e57" />
+                <stop offset="100%" stop-color="#a6717c" />
               </linearGradient>
             </defs>
             <rect width="500" height="240" rx="14" fill="url(#cardGrad)" />
-            <rect x="12" y="12" width="476" height="216" rx="10" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-dasharray="6,4" opacity="0.8" />
-            <rect x="22" y="22" width="456" height="196" rx="8" fill="rgba(0,0,0,0.25)" stroke="#60a5fa" stroke-width="1" />
+            <rect x="12" y="12" width="476" height="216" rx="10" fill="none" stroke="#f7cacf" stroke-width="1.8" stroke-dasharray="6,4" opacity="0.85" />
+            <rect x="22" y="22" width="456" height="196" rx="8" fill="rgba(0,0,0,0.15)" stroke="#f7cacf" stroke-width="1" />
             
-            <g transform="translate(60, 68)" stroke="#60a5fa" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="0" y="0" width="58" height="38" rx="4" fill="rgba(96, 165, 250, 0.15)"/>
+            <g transform="translate(60, 68)" stroke="#f7cacf" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="0" y="0" width="58" height="38" rx="4" fill="rgba(247, 202, 207, 0.15)"/>
               <line x1="8" y1="12" x2="22" y2="12"/>
               <line x1="8" y1="20" x2="35" y2="20"/>
-              <circle cx="45" cy="20" r="5" fill="#60a5fa"/>
+              <circle cx="45" cy="20" r="5" fill="#f7cacf"/>
               <path d="M10 52 L48 52 M29 52 L29 64"/>
             </g>
 
-            <text x="140" y="85" fill="#93c5fd" font-family="'Inter', sans-serif" font-size="13" font-weight="700" letter-spacing="2.5">SIDDHI DIGITAL</text>
+            <text x="140" y="85" fill="#f7cacf" font-family="'Inter', sans-serif" font-size="13" font-weight="700" letter-spacing="2.5">SIDDHI DIGITAL</text>
             <text x="140" y="120" fill="#ffffff" font-family="'Inter', sans-serif" font-size="21" font-weight="800">SMART BUSINESS CARDS</text>
-            <text x="140" y="148" fill="#e2e8f0" font-family="'Inter', sans-serif" font-size="13" opacity="0.9">Click-to-Call • Save vCard • Social Portfolios</text>
+            <text x="140" y="148" fill="#fff0f3" font-family="'Inter', sans-serif" font-size="13" opacity="0.95">Click-to-Call • Save vCard • Social Portfolios</text>
             
-            <rect x="140" y="165" width="165" height="24" rx="12" fill="#60a5fa" />
-            <text x="222" y="181" fill="#0f172a" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">INSTANT SHARING</text>
+            <rect x="140" y="165" width="165" height="24" rx="12" fill="#f7cacf" />
+            <text x="222" y="181" fill="#4a2129" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">INSTANT SHARING</text>
           </svg>
           
           <a href="https://wa.me/919970279238?text=Hi%20Siddhi%20Digital,%20I%20am%20interested%20in%20a%20Digital%20Business%20Card." target="_blank" class="enquiry-btn">Inquire Now</a>
@@ -736,29 +769,29 @@
           <svg class="product-banner-svg" viewBox="0 0 500 240" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="ganpatiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#451a03" />
-                <stop offset="50%" stop-color="#b45309" />
-                <stop offset="100%" stop-color="#d97706" />
+                <stop offset="0%" stop-color="#6e3725" />
+                <stop offset="50%" stop-color="#994d35" />
+                <stop offset="100%" stop-color="#c47056" />
               </linearGradient>
             </defs>
             <rect width="500" height="240" rx="14" fill="url(#ganpatiGrad)" />
-            <rect x="12" y="12" width="476" height="216" rx="10" fill="none" stroke="#fef08a" stroke-width="1.8" stroke-dasharray="6,4" opacity="0.8" />
-            <rect x="22" y="22" width="456" height="196" rx="8" fill="rgba(0,0,0,0.25)" stroke="#fef08a" stroke-width="1" />
+            <rect x="12" y="12" width="476" height="216" rx="10" fill="none" stroke="#fce7df" stroke-width="1.8" stroke-dasharray="6,4" opacity="0.85" />
+            <rect x="22" y="22" width="456" height="196" rx="8" fill="rgba(0,0,0,0.15)" stroke="#fce7df" stroke-width="1" />
             
-            <g transform="translate(62, 65)" stroke="#fef08a" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="0" y="5" width="48" height="65" rx="3" fill="rgba(254, 240, 138, 0.2)"/>
+            <g transform="translate(62, 65)" stroke="#fce7df" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="0" y="5" width="48" height="65" rx="3" fill="rgba(252, 231, 223, 0.2)"/>
               <line x1="8" y1="18" x2="40" y2="18"/>
               <line x1="8" y1="28" x2="32" y2="28"/>
               <line x1="8" y1="38" x2="36" y2="38"/>
-              <circle cx="24" cy="52" r="5" fill="#fef08a"/>
+              <circle cx="24" cy="52" r="5" fill="#fce7df"/>
             </g>
 
-            <text x="140" y="85" fill="#fef08a" font-family="'Inter', sans-serif" font-size="13" font-weight="700" letter-spacing="2.5">SIDDHI DIGITAL</text>
+            <text x="140" y="85" fill="#fce7df" font-family="'Inter', sans-serif" font-size="13" font-weight="700" letter-spacing="2.5">SIDDHI DIGITAL</text>
             <text x="140" y="120" fill="#ffffff" font-family="'Inter', sans-serif" font-size="20" font-weight="800">GANPATI PAVATI PUSTAK</text>
-            <text x="140" y="148" fill="#fef3c7" font-family="'Inter', sans-serif" font-size="13" opacity="0.9">डिजिटल पावती पुस्तक • Instant Donor Receipts</text>
+            <text x="140" y="148" fill="#fff5f0" font-family="'Inter', sans-serif" font-size="13" opacity="0.95">डिजिटल पावती पुस्तक • Instant Donor Receipts</text>
             
-            <rect x="140" y="165" width="165" height="24" rx="12" fill="#fef08a" />
-            <text x="222" y="181" fill="#451a03" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">TRANSPARENT & FAST</text>
+            <rect x="140" y="165" width="165" height="24" rx="12" fill="#fce7df" />
+            <text x="222" y="181" fill="#4a1f12" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">TRANSPARENT & FAST</text>
           </svg>
           
           <a href="https://wa.me/919970279238?text=Hi%20Siddhi%20Digital,%20I%20need%20details%20for%20Ganpati%20Mandal%20Digital%20Pavati%20Pustak." target="_blank" class="enquiry-btn">Inquire Now</a>
@@ -774,30 +807,30 @@
           <svg class="product-banner-svg" viewBox="0 0 500 240" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="pamphletGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#14532d" />
-                <stop offset="50%" stop-color="#15803d" />
-                <stop offset="100%" stop-color="#16a34a" />
+                <stop offset="0%" stop-color="#4e6151" />
+                <stop offset="50%" stop-color="#6b856f" />
+                <stop offset="100%" stop-color="#8fa893" />
               </linearGradient>
             </defs>
             <rect width="500" height="240" rx="14" fill="url(#pamphletGrad)" />
-            <rect x="12" y="12" width="476" height="216" rx="10" fill="none" stroke="#bbf7d0" stroke-width="1.8" stroke-dasharray="6,4" opacity="0.8" />
-            <rect x="22" y="22" width="456" height="196" rx="8" fill="rgba(0,0,0,0.25)" stroke="#bbf7d0" stroke-width="1" />
+            <rect x="12" y="12" width="476" height="216" rx="10" fill="none" stroke="#e3ece4" stroke-width="1.8" stroke-dasharray="6,4" opacity="0.85" />
+            <rect x="22" y="22" width="456" height="196" rx="8" fill="rgba(0,0,0,0.15)" stroke="#e3ece4" stroke-width="1" />
             
-            <g transform="translate(62, 65)" stroke="#bbf7d0" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="0" y="0" width="50" height="50" rx="4" fill="rgba(187, 247, 208, 0.2)"/>
-              <rect x="8" y="8" width="12" height="12" fill="#bbf7d0"/>
-              <rect x="30" y="8" width="12" height="12" fill="#bbf7d0"/>
-              <rect x="8" y="30" width="12" height="12" fill="#bbf7d0"/>
-              <rect x="26" y="26" width="6" height="6" fill="#bbf7d0"/>
+            <g transform="translate(62, 65)" stroke="#e3ece4" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="0" y="0" width="50" height="50" rx="4" fill="rgba(227, 236, 228, 0.2)"/>
+              <rect x="8" y="8" width="12" height="12" fill="#e3ece4"/>
+              <rect x="30" y="8" width="12" height="12" fill="#e3ece4"/>
+              <rect x="8" y="30" width="12" height="12" fill="#e3ece4"/>
+              <rect x="26" y="26" width="6" height="6" fill="#e3ece4"/>
               <path d="M25 60 L25 75 M15 75 L35 75"/>
             </g>
 
-            <text x="140" y="85" fill="#bbf7d0" font-family="'Inter', sans-serif" font-size="13" font-weight="700" letter-spacing="2.5">SIDDHI DIGITAL</text>
+            <text x="140" y="85" fill="#e3ece4" font-family="'Inter', sans-serif" font-size="13" font-weight="700" letter-spacing="2.5">SIDDHI DIGITAL</text>
             <text x="140" y="120" fill="#ffffff" font-family="'Inter', sans-serif" font-size="19" font-weight="800">QR SCANNER PAMPHLETS</text>
-            <text x="140" y="148" fill="#dcfce7" font-family="'Inter', sans-serif" font-size="13" opacity="0.9">गणेश मंडळ वर्गणी स्कॅनर • Seamless UPI Collections</text>
+            <text x="140" y="148" fill="#f2f7f3" font-family="'Inter', sans-serif" font-size="13" opacity="0.95">गणेश मंडळ वर्गणी स्कॅनर • Seamless UPI Collections</text>
             
-            <rect x="140" y="165" width="165" height="24" rx="12" fill="#bbf7d0" />
-            <text x="222" y="181" fill="#14532d" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">CUSTOM MANDAL BRANDING</text>
+            <rect x="140" y="165" width="165" height="24" rx="12" fill="#e3ece4" />
+            <text x="222" y="181" fill="#2d3b2f" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">CUSTOM MANDAL BRANDING</text>
           </svg>
           
           <a href="https://wa.me/919970279238?text=Hi%20Siddhi%20Digital,%20I%20need%20a%20Scanner%20Pamphlet%20for%20Ganpati%20Vargani%20collection." target="_blank" class="enquiry-btn">Inquire Now</a>
@@ -960,13 +993,13 @@
     </div>
 
     <!-- FOOTER -->
-    <div style="text-align: center; padding: 20px; font-size: 11.5px; color: #94a3b8; background: #fafafa; border-top: 1px solid #e2e8f0;">
+    <div style="text-align: center; padding: 20px; font-size: 11.5px; color: var(--muted); background: #fffcfd; border-top: 1px solid var(--line);">
       © 2026 Siddhi Digital. All Rights Reserved.
     </div>
 
   </div>
 
-  <!-- FLOATING BOTTOM NAVIGATION (With Video Tab) -->
+  <!-- FLOATING BOTTOM NAVIGATION -->
   <nav class="bottom-bar">
     <a href="#home" class="bottom-tab active">
       <i class="fa-solid fa-house"></i>
@@ -1112,6 +1145,7 @@ TITLE:Digital Invitations & Smart Cards
 TEL;TYPE=CELL,VOICE:+919970279238
 EMAIL;TYPE=INTERNET:poojahukkeri99@gmail.com
 URL:https://siddhidigitalinvite.in/
+X-SOCIALPROFILE;type=instagram:https://www.instagram.com/siddhidigital1
 END:VCARD`;
 
       const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8;' });
