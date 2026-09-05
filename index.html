@@ -3,215 +3,418 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Siddhi Digital - Digital Business Card</title>
-  
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Siddhi Digital - Smart Cards, Invitations & Digital Solutions</title>
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #2563eb;
+      --accent: #d97706;
+      --surface: #ffffff;
+      --bg: #f8fafc;
+      --text: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --whatsapp: #25d366;
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
     }
+
     body {
-      background-color: #eef2f6;
+      background-color: var(--bg);
+      color: var(--text);
       display: flex;
       justify-content: center;
-      padding: 15px 8px;
+      padding: 10px 6px 80px;
     }
-    .card-container {
+
+    .card-shell {
       width: 100%;
-      max-width: 430px;
-      background: #ffffff;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
-    }
-    .header-banner {
-      background: linear-gradient(135deg, #c84b31, #e06347);
-      height: 125px;
-      position: relative;
-    }
-    .profile-section {
-      text-align: center;
-      margin-top: -55px;
-      padding: 0 20px 15px;
-      position: relative;
-      z-index: 2;
-    }
-    .profile-img {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      border: 4px solid #ffffff;
-      background: #ffffff;
-      object-fit: contain;
-      padding: 6px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-      display: inline-block;
-    }
-    .profile-section h2 {
-      font-size: 22px;
-      color: #1b2838;
-      margin-top: 10px;
-      font-weight: 700;
-    }
-    .profile-section p {
-      font-size: 13px;
-      color: #666666;
-    }
-    .tagline {
-      display: inline-block;
-      margin-top: 6px;
-      padding: 3px 14px;
-      background: #fde8e8;
-      color: #c84b31;
+      max-width: 440px;
+      background: var(--surface);
       border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    /* Hero / Profile Section */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #2563eb 100%);
+      color: #fff;
+      text-align: center;
+      padding: 26px 20px 24px;
+      position: relative;
+    }
+    .views-counter {
+      position: absolute;
+      top: 14px;
+      right: 16px;
       font-size: 11px;
-      font-weight: 600;
+      background: rgba(255, 255, 255, 0.18);
+      padding: 3px 10px;
+      border-radius: 12px;
+      backdrop-filter: blur(4px);
     }
-    .action-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      padding: 15px;
-      background: #fafafa;
-      border-top: 1px solid #f0f0f0;
-      border-bottom: 1px solid #f0f0f0;
+    .avatar-wrap {
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 4px solid #ffffff;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .action-btn {
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 4px;
+    }
+    .hero h1 {
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+    }
+    .hero .role {
+      font-size: 12.5px;
+      opacity: 0.95;
+      margin-top: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Quick Action Row */
+    .quick-bar {
+      display: flex;
+      justify-content: space-around;
+      padding: 14px 20px;
+      background: #ffffff;
+      border-bottom: 8px solid var(--line);
+    }
+    .quick-btn {
+      text-decoration: none;
+      color: var(--text);
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-decoration: none;
-      color: #333333;
+      gap: 5px;
       font-size: 11px;
-      font-weight: 500;
+      font-weight: 600;
     }
-    .action-icon {
-      width: 44px;
-      height: 44px;
+    .quick-btn .icon-circle {
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #ffffff;
+      color: #fff;
       font-size: 18px;
-      margin-bottom: 6px;
       transition: transform 0.2s;
     }
-    .action-icon:hover { transform: scale(1.08); }
-    .bg-call { background: #2563eb; }
-    .bg-wa   { background: #25d366; }
-    .bg-web  { background: #c84b31; }
-    .bg-map  { background: #ea4335; }
+    .quick-btn:hover .icon-circle {
+      transform: scale(1.05);
+    }
+    .btn-call { background: var(--secondary); }
+    .btn-wa   { background: var(--whatsapp); }
+    .btn-web  { background: #0f172a; }
 
-    .invite-banner-btn {
+    /* Section Styling */
+    .section {
+      padding: 20px 18px;
+      border-bottom: 8px solid var(--line);
+    }
+    .section-header {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .section-header::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 48px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    /* Contact Details */
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 13px;
+      text-decoration: none;
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .info-row i {
+      color: var(--primary);
+      width: 18px;
+      text-align: center;
+      margin-top: 2px;
+      font-size: 15px;
+    }
+
+    /* Action Buttons Row */
+    .vcard-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .vcard-action {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #fff;
+      background: var(--primary);
+      cursor: pointer;
+      border: none;
+    }
+    .vcard-action.btn-wa-share {
+      background: var(--whatsapp);
+    }
+
+    /* Direct Links Tile */
+    .link-tile {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: linear-gradient(135deg, #c84b31, #e06347);
-      color: #ffffff;
-      padding: 14px 18px;
-      border-radius: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 10px 14px;
       text-decoration: none;
-      box-shadow: 0 4px 12px rgba(200, 75, 49, 0.25);
-      transition: transform 0.2s;
+      color: var(--text);
+      transition: background 0.2s;
+      margin-bottom: 8px;
     }
-    .invite-banner-btn:hover { transform: translateY(-2px); }
-    .invite-banner-btn .btn-text { display: flex; flex-direction: column; }
-    .invite-banner-btn .btn-text strong { font-size: 14px; font-weight: 600; color: #fff; }
-    .invite-banner-btn .btn-text span { font-size: 11px; opacity: 0.9; color: #fff; }
-    .invite-banner-btn i { font-size: 20px; color: #fff; }
-
-    .content-box { padding: 18px 20px; }
-    .section-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: #1b2838;
-      border-left: 4px solid #c84b31;
-      padding-left: 8px;
-      margin-bottom: 12px;
+    .link-tile:hover {
+      background: #f1f5f9;
     }
-    .about-text { font-size: 13px; color: #555555; line-height: 1.6; }
-
-    .service-item {
+    .link-tile-left {
       display: flex;
       align-items: center;
       gap: 12px;
-      background: #f8f9fa;
-      padding: 10px 14px;
-      border-radius: 10px;
-      margin-bottom: 8px;
+    }
+    .link-tile-left i {
+      font-size: 22px;
+      color: var(--primary);
+    }
+    .link-tile-title {
       font-size: 13px;
-      color: #333333;
+      font-weight: 600;
+    }
+    .link-tile-desc {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* Specialties Pill Grid */
+    .pill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .pill {
+      background: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
       font-weight: 500;
     }
-    .service-item i { color: #c84b31; font-size: 15px; }
 
+    /* Collection Cards */
+    .product-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .product-body {
+      padding: 14px;
+    }
+    .product-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .product-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .product-banner-svg {
+      width: 100%;
+      height: 175px;
+      border-radius: 10px;
+      display: block;
+      margin-bottom: 12px;
+      box-shadow: 0 3px 10px rgba(30, 58, 138, 0.12);
+    }
+    .enquiry-btn {
+      display: inline-block;
+      background: var(--whatsapp);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+    }
+
+    /* 15 Videos Showcase Grid */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .video-item {
+      position: relative;
+      aspect-ratio: 9 / 16; /* Optimized for vertical invitation/reels format */
+      border-radius: 10px;
+      overflow: hidden;
+      background: #0f172a;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      cursor: pointer;
+    }
+    .video-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none; /* Allows click to trigger lightbox */
+    }
+    .video-play-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(15, 23, 42, 0.35);
+      transition: background 0.2s;
+    }
+    .video-item:hover .video-play-overlay {
+      background: rgba(15, 23, 42, 0.15);
+    }
+    .play-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.88);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      padding-left: 2px;
+    }
+    .video-tag {
+      position: absolute;
+      bottom: 6px;
+      left: 6px;
+      right: 6px;
+      background: rgba(0, 0, 0, 0.65);
+      color: #fff;
+      font-size: 10px;
+      padding: 3px 6px;
+      border-radius: 4px;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* 25 Photo Gallery Grid */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 5px;
+      gap: 10px;
+      margin-top: 8px;
     }
-    .gallery-card {
-      background: #ffffff;
-      border-radius: 12px;
+    .gallery-item {
+      aspect-ratio: 1 / 1;
+      border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-      border: 1px solid #f0f0f0;
-      text-align: center;
+      border: 1px solid #e2e8f0;
+      background: #f1f5f9;
       cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .gallery-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    .gallery-card img {
+    .gallery-item img {
       width: 100%;
-      height: 130px;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
-    .gallery-title {
-      font-size: 12px;
-      font-weight: 600;
-      padding: 8px 4px;
-      color: #333333;
-    }
 
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      background: #000000;
-      margin-bottom: 14px;
-    }
-    .video-wrapper video { width: 100%; display: block; }
-
+    /* Lightbox Modal for Images & Videos */
     .lightbox-modal {
       display: none;
       position: fixed;
-      z-index: 9999;
+      z-index: 99999;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-color: rgba(0, 0, 0, 0.9);
+      background-color: rgba(0, 0, 0, 0.94);
       justify-content: center;
       align-items: center;
       padding: 20px;
     }
     .lightbox-content {
-      max-width: 90%;
+      max-width: 92%;
       max-height: 85vh;
       border-radius: 8px;
       object-fit: contain;
@@ -221,276 +424,704 @@
       top: 20px;
       right: 25px;
       color: #ffffff;
-      font-size: 32px;
+      font-size: 34px;
       cursor: pointer;
       font-weight: bold;
     }
 
-    .lead-form input, .lead-form textarea {
+    /* Inquiry Form */
+    .inquiry-form input,
+    .inquiry-form textarea {
       width: 100%;
       padding: 10px 12px;
-      margin-bottom: 10px;
-      border: 1px solid #dddddd;
-      border-radius: 8px;
       font-size: 13px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      margin-bottom: 10px;
       outline: none;
     }
-    .lead-form input:focus, .lead-form textarea:focus { border-color: #c84b31; }
-    .lead-form button {
+    .inquiry-form input:focus,
+    .inquiry-form textarea:focus {
+      border-color: var(--primary);
+    }
+    .inquiry-form button {
       width: 100%;
-      background: #1b2838;
-      color: #ffffff;
+      background: var(--primary);
+      color: #fff;
       border: none;
-      padding: 12px;
+      padding: 11px;
       border-radius: 8px;
-      font-size: 14px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    /* Share Section */
+    .share-box {
+      border: 1px dashed #93c5fd;
+      padding: 16px;
+      border-radius: 12px;
+      text-align: center;
+      background: #eff6ff;
+    }
+    .qr-img {
+      width: 140px;
+      height: 140px;
+      margin: 10px auto;
+      display: block;
+      border-radius: 8px;
+      border: 1px solid #bfdbfe;
+      padding: 4px;
+      background: #fff;
+    }
+    .share-direct-wrap {
+      margin-top: 16px;
+      text-align: left;
+    }
+    .share-direct-wrap label {
+      font-size: 11.5px;
+      color: var(--muted);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .share-input-group {
+      display: flex;
+      gap: 6px;
+    }
+    .share-input-group input {
+      flex: 1;
+      padding: 8px 10px;
+      font-size: 12.5px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      outline: none;
+    }
+    .share-input-group button {
+      background: var(--whatsapp);
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.3s;
     }
-    .lead-form button:hover { background: #c84b31; }
 
-    .social-links {
+    /* Bottom Floating Navigation */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 440px;
+      background: #ffffff;
       display: flex;
-      justify-content: center;
-      gap: 14px;
-      margin-top: 10px;
+      justify-content: space-around;
+      padding: 8px 0 10px;
+      box-shadow: 0 -3px 12px rgba(0,0,0,0.08);
+      z-index: 999;
+      border-top: 1px solid #e2e8f0;
     }
-    .social-links a {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #f0f2f5;
-      color: #333333;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .bottom-tab {
       text-decoration: none;
-      font-size: 17px;
-      transition: all 0.2s;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      font-size: 9.5px;
+      font-weight: 600;
     }
-    .social-links a:hover { background: #c84b31; color: #ffffff; }
-
-    .footer {
-      text-align: center;
-      padding: 16px;
-      font-size: 11px;
-      color: #888888;
-      background: #fafafa;
-      border-top: 1px solid #f0f0f0;
+    .bottom-tab i {
+      font-size: 15px;
+    }
+    .bottom-tab:hover, .bottom-tab.active {
+      color: var(--primary);
     }
   </style>
 </head>
 <body>
 
-  <div class="card-container">
-    
-    <div class="header-banner"></div>
+  <div class="card-shell">
 
-    <div class="profile-section">
-      <img src="logo.png" alt="Siddhi Digital Logo" class="profile-img" onerror="this.onerror=null; this.src='Logo.png';">
-      <h2>Siddhi Digital</h2>
-      <p>Innovate • Create • Grow</p>
-      <span class="tagline">Smart Digital Solutions</span>
+    <!-- HOME / PROFILE SECTION -->
+    <div class="hero" id="home">
+      <div class="views-counter"><i class="fa-solid fa-eye"></i> Views: <b>1,420</b></div>
+      <div class="avatar-wrap">
+        <img src="logo.png" alt="Siddhi Digital Logo" onerror="handleImgError(this, ['logo.jpeg', 'logo.jpg', 'Logo.png'])">
+      </div>
+      <h1>Siddhi Digital</h1>
+      <div class="role">Smart Digital Cards & Creative Invitations</div>
     </div>
 
-    <div class="action-grid">
-      <a href="tel:+919970279238" class="action-btn">
-        <div class="action-icon bg-call"><i class="fa-solid fa-phone"></i></div>
+    <!-- QUICK CALL/WHATSAPP/WEBSITE BAR -->
+    <div class="quick-bar">
+      <a href="tel:+919970279238" class="quick-btn">
+        <div class="icon-circle btn-call"><i class="fa-solid fa-phone"></i></div>
         Call
       </a>
-      <a href="https://wa.me/919970279238?text=Hello%20Siddhi%20Digital,%20I%20am%20interested%20in%20your%20services" class="action-btn" target="_blank">
-        <div class="action-icon bg-wa"><i class="fa-brands fa-whatsapp"></i></div>
+      <a href="https://wa.me/919970279238?text=Hello%20Siddhi%20Digital,%20I%20saw%20your%20digital%20card%20and%20am%20interested%20in%20your%20services." target="_blank" class="quick-btn">
+        <div class="icon-circle btn-wa"><i class="fa-brands fa-whatsapp"></i></div>
         WhatsApp
       </a>
-      <a href="https://siddhidigitalinvite.in/" class="action-btn" target="_blank">
-        <div class="action-icon bg-web"><i class="fa-solid fa-globe"></i></div>
+      <a href="https://siddhidigitalinvite.in/" target="_blank" class="quick-btn">
+        <div class="icon-circle btn-web"><i class="fa-solid fa-globe"></i></div>
         Website
       </a>
-      <a href="https://maps.google.com" class="action-btn" target="_blank">
-        <div class="action-icon bg-map"><i class="fa-solid fa-location-dot"></i></div>
-        Location
-      </a>
     </div>
 
-    <div class="content-box">
-      <a href="https://siddhidigitalinvite.in/" target="_blank" class="invite-banner-btn">
-        <div class="btn-text">
-          <strong>Digital Invitation Templates</strong>
-          <span>Explore wedding, birthday & event designs</span>
-        </div>
-        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-      </a>
-    </div>
+    <!-- CONTACT DETAILS & ACTIONS -->
+    <div class="section">
+      <div class="info-list">
+        <a href="tel:+919970279238" class="info-row">
+          <i class="fa-solid fa-phone"></i>
+          <span>+91-9970279238</span>
+        </a>
+        <a href="mailto:poojahukkeri99@gmail.com" class="info-row">
+          <i class="fa-solid fa-envelope"></i>
+          <span>poojahukkeri99@gmail.com</span>
+        </a>
+        <a href="https://siddhidigitalinvite.in/" target="_blank" class="info-row">
+          <i class="fa-solid fa-globe"></i>
+          <span>https://siddhidigitalinvite.in/</span>
+        </a>
+      </div>
 
-    <div class="content-box" style="padding-top: 0;">
-      <h3 class="section-title">About Us</h3>
-      <p class="about-text">
-        Make an impactful first impression. Impress, connect, and grow your brand identity with smart digital business cards, interactive event invitations, and online payment solutions.
-      </p>
-    </div>
-
-    <div class="content-box" style="padding-top: 0;">
-      <h3 class="section-title">Our Services</h3>
-      <div class="service-item"><i class="fa-solid fa-id-card"></i> Digital Business Cards</div>
-      <div class="service-item"><i class="fa-solid fa-envelope-open-text"></i> Digital Invitations (Wedding, Birthday, Naming)</div>
-      <div class="service-item"><i class="fa-solid fa-receipt"></i> Digital Vargani & Online Receipts</div>
-      <div class="service-item"><i class="fa-solid fa-bullhorn"></i> Business Branding & Poster Design</div>
-    </div>
-
-    <!-- 10 Gallery Photos -->
-    <div class="content-box" style="padding-top: 0;">
-      <h3 class="section-title">Our Work Gallery</h3>
-      <div class="gallery-grid">
-        
-        <div class="gallery-card" onclick="openLightbox('photo.jpg')">
-          <img src="photo.jpg" alt="Design 1" onerror="this.onerror=null; this.src='Photo.jpg';">
-          <div class="gallery-title">Digital Cards</div>
-        </div>
-
-        <div class="gallery-card" onclick="openLightbox('photo1.jpg')">
-          <img src="photo1.jpg" alt="Design 2" onerror="this.onerror=null; this.src='Photo1.jpg';">
-          <div class="gallery-title">Digital Invites</div>
-        </div>
-
-        <div class="gallery-card" onclick="openLightbox('photo2.jpg')">
-          <img src="photo2.jpg" alt="Design 3" onerror="this.onerror=null; this.src='Photo2.jpg';">
-          <div class="gallery-title">Posters & Branding</div>
-        </div>
-
-        <div class="gallery-card" onclick="openLightbox('photo3.jpg')">
-          <img src="photo3.jpg" alt="Design 4" onerror="this.onerror=null; this.src='Photo3.jpg';">
-          <div class="gallery-title">Digital Vargani</div>
-        </div>
-
-        <div class="gallery-card" onclick="openLightbox('photo4.jpg')">
-          <img src="photo4.jpg" alt="Design 5" onerror="this.onerror=null; this.src='Photo4.jpg';">
-          <div class="gallery-title">Event Invitation</div>
-        </div>
-
-        <div class="gallery-card" onclick="openLightbox('photo5.jpg')">
-          <img src="photo5.jpg" alt="Design 6" onerror="this.onerror=null; this.src='Photo5.jpg';">
-          <div class="gallery-title">Business Promo</div>
-        </div>
-
-        <div class="gallery-card" onclick="openLightbox('photo6.jpg')">
-          <img src="photo6.jpg" alt="Design 7" onerror="this.onerror=null; this.src='Photo6.jpg';">
-          <div class="gallery-title">Social Media Post</div>
-        </div>
-
-        <div class="gallery-card" onclick="openLightbox('photo7.jpg')">
-          <img src="photo7.jpg" alt="Design 8" onerror="this.onerror=null; this.src='Photo7.jpg';">
-          <div class="gallery-title">Custom Design</div>
-        </div>
-
-        <div class="gallery-card" onclick="openLightbox('photo8.jpg')">
-          <img src="photo8.jpg" alt="Design 9" onerror="this.onerror=null; this.src='Photo8.jpg';">
-          <div class="gallery-title">Special Invite</div>
-        </div>
-
-        <div class="gallery-card" onclick="openLightbox('photo9.jpg')">
-          <img src="photo9.jpg" alt="Design 10" onerror="this.onerror=null; this.src='Photo9.jpg';">
-          <div class="gallery-title">Branding Design</div>
-        </div>
-
+      <div class="vcard-row">
+        <a href="javascript:void(0)" onclick="downloadVCard()" class="vcard-action">
+          <i class="fa-solid fa-address-book"></i> Add to Contacts
+        </a>
+        <a href="javascript:void(0)" onclick="shareOnWhatsApp()" class="vcard-action btn-wa-share">
+          <i class="fa-brands fa-whatsapp"></i> Share Card
+        </a>
       </div>
     </div>
 
-    <!-- 6 Promo Videos -->
-    <div class="content-box" style="padding-top: 0;">
-      <h3 class="section-title">Promo Videos</h3>
+    <!-- DIRECT LINKS SECTION -->
+    <div class="section" id="links">
+      <div class="section-header">Direct Links</div>
       
-      <div class="video-wrapper">
-        <video controls playsinline preload="metadata">
-          <source src="video.mp4" type="video/mp4">
-          <source src="Video.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+      <a href="https://siddhidigitalinvite.in/" target="_blank" class="link-tile">
+        <div class="link-tile-left">
+          <i class="fa-solid fa-globe"></i>
+          <div>
+            <div class="link-tile-title">Official Website</div>
+            <div class="link-tile-desc">Explore sample designs, invitations & demos</div>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-right" style="color:var(--secondary); font-size: 13px;"></i>
+      </a>
+
+      <a href="https://wa.me/919970279238" target="_blank" class="link-tile">
+        <div class="link-tile-left">
+          <i class="fa-brands fa-whatsapp" style="color:var(--whatsapp)"></i>
+          <div>
+            <div class="link-tile-title">WhatsApp Order Desk</div>
+            <div class="link-tile-desc">Direct inquiry for fast digital delivery</div>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-right" style="color:var(--secondary); font-size: 13px;"></i>
+      </a>
+    </div>
+
+    <!-- ABOUT US SECTION -->
+    <div class="section" id="about">
+      <div class="section-header">About Siddhi Digital</div>
+      <p style="font-size: 13px; color: #475569; line-height: 1.6;">
+        Welcome to <strong>Siddhi Digital</strong>. We craft sleek, interactive digital invitation cards, contactless digital business cards, and automated festival collection tools. From weddings and celebrations to Ganeshotsav digital receipt books and QR pamphlets, we modernize your outreach.
+      </p>
+
+      <div class="section-header" style="margin-top: 18px; font-size: 13.5px; border-bottom: none; padding-bottom: 0;">What We Offer</div>
+      <div class="pill-grid">
+        <div class="pill">Digital Invitations 💌</div>
+        <div class="pill">Smart Business Cards 💳</div>
+        <div class="pill">Ganpati Mandal Pavati Pustak 📋</div>
+        <div class="pill">Scanner Pamphlets for Vargani 📲</div>
+      </div>
+    </div>
+
+    <!-- SERVICES / COLLECTION SECTION -->
+    <div class="section" id="services">
+      <div class="section-header">Our Key Services</div>
+
+      <!-- 1. Digital Invitations -->
+      <div class="product-card">
+        <div class="product-body">
+          <div class="product-title">💌 Digital Invitations</div>
+          <div class="product-desc">Interactive and animated wedding, birthday, housewarming, and ceremonial digital invitation cards with one-tap RSVP and venue directions.</div>
+          
+          <svg class="product-banner-svg" viewBox="0 0 500 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="invGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0f172a" />
+                <stop offset="50%" stop-color="#1e3a8a" />
+                <stop offset="100%" stop-color="#3b82f6" />
+              </linearGradient>
+              <linearGradient id="goldAcc" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fde68a" />
+                <stop offset="50%" stop-color="#f59e0b" />
+                <stop offset="100%" stop-color="#fbbf24" />
+              </linearGradient>
+            </defs>
+            <rect width="500" height="240" rx="14" fill="url(#invGrad)" />
+            <rect x="12" y="12" width="476" height="216" rx="10" fill="none" stroke="url(#goldAcc)" stroke-width="1.8" stroke-dasharray="6,4" opacity="0.8" />
+            <rect x="22" y="22" width="456" height="196" rx="8" fill="rgba(0,0,0,0.25)" stroke="url(#goldAcc)" stroke-width="1" />
+            
+            <g transform="translate(60, 65)" stroke="url(#goldAcc)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="0" y="10" width="60" height="42" rx="4" fill="rgba(245, 158, 11, 0.15)"/>
+              <path d="M0 12 L30 35 L60 12"/>
+              <circle cx="30" cy="74" r="10" fill="rgba(245, 158, 11, 0.25)"/>
+              <path d="M30 68 L30 80"/>
+              <path d="M24 74 L36 74"/>
+            </g>
+
+            <text x="140" y="85" fill="#fde68a" font-family="'Inter', sans-serif" font-size="13" font-weight="700" letter-spacing="2.5">SIDDHI DIGITAL</text>
+            <text x="140" y="120" fill="#ffffff" font-family="'Inter', sans-serif" font-size="21" font-weight="800">DIGITAL INVITATIONS</text>
+            <text x="140" y="148" fill="#e2e8f0" font-family="'Inter', sans-serif" font-size="13" opacity="0.9">Weddings • Birthdays • Anniversaries • Ceremonies</text>
+            
+            <rect x="140" y="165" width="165" height="24" rx="12" fill="url(#goldAcc)" />
+            <text x="222" y="181" fill="#0f172a" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">ONE-TAP RSVP & MAPS</text>
+          </svg>
+          
+          <a href="https://wa.me/919970279238?text=Hi%20Siddhi%20Digital,%20I%20am%20interested%20in%20Digital%20Invitations." target="_blank" class="enquiry-btn">Inquire Now</a>
+        </div>
       </div>
 
-      <div class="video-wrapper">
-        <video controls playsinline preload="metadata">
-          <source src="video1.mp4" type="video/mp4">
-          <source src="Video1.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+      <!-- 2. Smart Digital Business Cards -->
+      <div class="product-card">
+        <div class="product-body">
+          <div class="product-title">💳 Smart Digital Business Cards</div>
+          <div class="product-desc">Eco-friendly, modern web profile cards with direct call, WhatsApp, portfolio galleries, Google Maps directions, and one-click contact download.</div>
+          
+          <svg class="product-banner-svg" viewBox="0 0 500 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#090d16" />
+                <stop offset="50%" stop-color="#1e293b" />
+                <stop offset="100%" stop-color="#2563eb" />
+              </linearGradient>
+            </defs>
+            <rect width="500" height="240" rx="14" fill="url(#cardGrad)" />
+            <rect x="12" y="12" width="476" height="216" rx="10" fill="none" stroke="#60a5fa" stroke-width="1.8" stroke-dasharray="6,4" opacity="0.8" />
+            <rect x="22" y="22" width="456" height="196" rx="8" fill="rgba(0,0,0,0.25)" stroke="#60a5fa" stroke-width="1" />
+            
+            <g transform="translate(60, 68)" stroke="#60a5fa" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="0" y="0" width="58" height="38" rx="4" fill="rgba(96, 165, 250, 0.15)"/>
+              <line x1="8" y1="12" x2="22" y2="12"/>
+              <line x1="8" y1="20" x2="35" y2="20"/>
+              <circle cx="45" cy="20" r="5" fill="#60a5fa"/>
+              <path d="M10 52 L48 52 M29 52 L29 64"/>
+            </g>
+
+            <text x="140" y="85" fill="#93c5fd" font-family="'Inter', sans-serif" font-size="13" font-weight="700" letter-spacing="2.5">SIDDHI DIGITAL</text>
+            <text x="140" y="120" fill="#ffffff" font-family="'Inter', sans-serif" font-size="21" font-weight="800">SMART BUSINESS CARDS</text>
+            <text x="140" y="148" fill="#e2e8f0" font-family="'Inter', sans-serif" font-size="13" opacity="0.9">Click-to-Call • Save vCard • Social Portfolios</text>
+            
+            <rect x="140" y="165" width="165" height="24" rx="12" fill="#60a5fa" />
+            <text x="222" y="181" fill="#0f172a" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">INSTANT SHARING</text>
+          </svg>
+          
+          <a href="https://wa.me/919970279238?text=Hi%20Siddhi%20Digital,%20I%20am%20interested%20in%20a%20Digital%20Business%20Card." target="_blank" class="enquiry-btn">Inquire Now</a>
+        </div>
       </div>
 
-      <div class="video-wrapper">
-        <video controls playsinline preload="metadata">
-          <source src="video2.mp4" type="video/mp4">
-          <source src="Video2.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+      <!-- 3. Ganpati Mandal Pavati Pustak -->
+      <div class="product-card">
+        <div class="product-body">
+          <div class="product-title">📋 Ganpati Mandal Pavati Pustak (पावती पुस्तक)</div>
+          <div class="product-desc">Digital receipt book solutions for Ganeshotsav Mandals. Generate instant, transparent SMS/WhatsApp receipts for donors and track collection totals effortlessly.</div>
+          
+          <svg class="product-banner-svg" viewBox="0 0 500 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="ganpatiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#451a03" />
+                <stop offset="50%" stop-color="#b45309" />
+                <stop offset="100%" stop-color="#d97706" />
+              </linearGradient>
+            </defs>
+            <rect width="500" height="240" rx="14" fill="url(#ganpatiGrad)" />
+            <rect x="12" y="12" width="476" height="216" rx="10" fill="none" stroke="#fef08a" stroke-width="1.8" stroke-dasharray="6,4" opacity="0.8" />
+            <rect x="22" y="22" width="456" height="196" rx="8" fill="rgba(0,0,0,0.25)" stroke="#fef08a" stroke-width="1" />
+            
+            <g transform="translate(62, 65)" stroke="#fef08a" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="0" y="5" width="48" height="65" rx="3" fill="rgba(254, 240, 138, 0.2)"/>
+              <line x1="8" y1="18" x2="40" y2="18"/>
+              <line x1="8" y1="28" x2="32" y2="28"/>
+              <line x1="8" y1="38" x2="36" y2="38"/>
+              <circle cx="24" cy="52" r="5" fill="#fef08a"/>
+            </g>
+
+            <text x="140" y="85" fill="#fef08a" font-family="'Inter', sans-serif" font-size="13" font-weight="700" letter-spacing="2.5">SIDDHI DIGITAL</text>
+            <text x="140" y="120" fill="#ffffff" font-family="'Inter', sans-serif" font-size="20" font-weight="800">GANPATI PAVATI PUSTAK</text>
+            <text x="140" y="148" fill="#fef3c7" font-family="'Inter', sans-serif" font-size="13" opacity="0.9">डिजिटल पावती पुस्तक • Instant Donor Receipts</text>
+            
+            <rect x="140" y="165" width="165" height="24" rx="12" fill="#fef08a" />
+            <text x="222" y="181" fill="#451a03" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">TRANSPARENT & FAST</text>
+          </svg>
+          
+          <a href="https://wa.me/919970279238?text=Hi%20Siddhi%20Digital,%20I%20need%20details%20for%20Ganpati%20Mandal%20Digital%20Pavati%20Pustak." target="_blank" class="enquiry-btn">Inquire Now</a>
+        </div>
       </div>
 
-      <div class="video-wrapper">
-        <video controls playsinline preload="metadata">
-          <source src="video3.mp4" type="video/mp4">
-          <source src="Video3.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
+      <!-- 4. Scanner Pamphlet for Vargani Collection -->
+      <div class="product-card">
+        <div class="product-body">
+          <div class="product-title">📲 Digital Scanner Pamphlet for Vargani</div>
+          <div class="product-desc">Custom QR-coded promotional pamphlets and flyers for Ganesh Mandal Vargani collection, enabling quick UPI payment directly to the Mandal account.</div>
+          
+          <svg class="product-banner-svg" viewBox="0 0 500 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="pamphletGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#14532d" />
+                <stop offset="50%" stop-color="#15803d" />
+                <stop offset="100%" stop-color="#16a34a" />
+              </linearGradient>
+            </defs>
+            <rect width="500" height="240" rx="14" fill="url(#pamphletGrad)" />
+            <rect x="12" y="12" width="476" height="216" rx="10" fill="none" stroke="#bbf7d0" stroke-width="1.8" stroke-dasharray="6,4" opacity="0.8" />
+            <rect x="22" y="22" width="456" height="196" rx="8" fill="rgba(0,0,0,0.25)" stroke="#bbf7d0" stroke-width="1" />
+            
+            <g transform="translate(62, 65)" stroke="#bbf7d0" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="0" y="0" width="50" height="50" rx="4" fill="rgba(187, 247, 208, 0.2)"/>
+              <rect x="8" y="8" width="12" height="12" fill="#bbf7d0"/>
+              <rect x="30" y="8" width="12" height="12" fill="#bbf7d0"/>
+              <rect x="8" y="30" width="12" height="12" fill="#bbf7d0"/>
+              <rect x="26" y="26" width="6" height="6" fill="#bbf7d0"/>
+              <path d="M25 60 L25 75 M15 75 L35 75"/>
+            </g>
 
-      <div class="video-wrapper">
-        <video controls playsinline preload="metadata">
-          <source src="video4.mp4" type="video/mp4">
-          <source src="Video4.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      <div class="video-wrapper">
-        <video controls playsinline preload="metadata">
-          <source src="video5.mp4" type="video/mp4">
-          <source src="Video5.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+            <text x="140" y="85" fill="#bbf7d0" font-family="'Inter', sans-serif" font-size="13" font-weight="700" letter-spacing="2.5">SIDDHI DIGITAL</text>
+            <text x="140" y="120" fill="#ffffff" font-family="'Inter', sans-serif" font-size="19" font-weight="800">QR SCANNER PAMPHLETS</text>
+            <text x="140" y="148" fill="#dcfce7" font-family="'Inter', sans-serif" font-size="13" opacity="0.9">गणेश मंडळ वर्गणी स्कॅनर • Seamless UPI Collections</text>
+            
+            <rect x="140" y="165" width="165" height="24" rx="12" fill="#bbf7d0" />
+            <text x="222" y="181" fill="#14532d" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">CUSTOM MANDAL BRANDING</text>
+          </svg>
+          
+          <a href="https://wa.me/919970279238?text=Hi%20Siddhi%20Digital,%20I%20need%20a%20Scanner%20Pamphlet%20for%20Ganpati%20Vargani%20collection." target="_blank" class="enquiry-btn">Inquire Now</a>
+        </div>
       </div>
 
     </div>
 
-    <div class="content-box" style="padding-top: 0;">
-      <h3 class="section-title">Inquire Now</h3>
-      <form action="https://formspree.io/f/meeynezw" method="POST" class="lead-form">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="tel" name="phone" placeholder="Phone / WhatsApp Number" required>
-        <textarea name="message" rows="3" placeholder="Which service are you looking for?" required></textarea>
-        <button type="submit">Send Message</button>
+    <!-- 15 VIDEOS SECTION (video1.mp4 to video15.mp4) -->
+    <div class="section" id="videos">
+      <div class="section-header">Video Demos & Reels (15 Videos)</div>
+      <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">Tap any video to play full screen with audio:</p>
+      
+      <div class="video-grid">
+        <div class="video-item" onclick="openLightboxVideo('video1.mp4')">
+          <video src="video1.mp4" preload="metadata" muted playsinline></video>
+          <div class="video-play-overlay"><div class="play-badge"><i class="fa-solid fa-play"></i></div></div>
+          <div class="video-tag">Demo 1</div>
+        </div>
+        <div class="video-item" onclick="openLightboxVideo('video2.mp4')">
+          <video src="video2.mp4" preload="metadata" muted playsinline></video>
+          <div class="video-play-overlay"><div class="play-badge"><i class="fa-solid fa-play"></i></div></div>
+          <div class="video-tag">Demo 2</div>
+        </div>
+        <div class="video-item" onclick="openLightboxVideo('video3.mp4')">
+          <video src="video3.mp4" preload="metadata" muted playsinline></video>
+          <div class="video-play-overlay"><div class="play-badge"><i class="fa-solid fa-play"></i></div></div>
+          <div class="video-tag">Demo 3</div>
+        </div>
+        <div class="video-item" onclick="openLightboxVideo('video4.mp4')">
+          <video src="video4.mp4" preload="metadata" muted playsinline></video>
+          <div class="video-play-overlay"><div class="play-badge"><i class="fa-solid fa-play"></i></div></div>
+          <div class="video-tag">Demo 4</div>
+        </div>
+        <div class="video-item" onclick="openLightboxVideo('video5.mp4')">
+          <video src="video5.mp4" preload="metadata" muted playsinline></video>
+          <div class="video-play-overlay"><div class="play-badge"><i class="fa-solid fa-play"></i></div></div>
+          <div class="video-tag">Demo 5</div>
+        </div>
+        <div class="video-item" onclick="openLightboxVideo('video6.mp4')">
+          <video src="video6.mp4" preload="metadata" muted playsinline></video>
+          <div class="video-play-overlay"><div class="play-badge"><i class="fa-solid fa-play"></i></div></div>
+          <div class="video-tag">Demo 6</div>
+        </div>
+        <div class="video-item" onclick="openLightboxVideo('video7.mp4')">
+          <video src="video7.mp4" preload="metadata" muted playsinline></video>
+          <div class="video-play-overlay"><div class="play-badge"><i class="fa-solid fa-play"></i></div></div>
+          <div class="video-tag">Demo 7</div>
+        </div>
+        <div class="video-item" onclick="openLightboxVideo('video8.mp4')">
+          <video src="video8.mp4" preload="metadata" muted playsinline></video>
+          <div class="video-play-overlay"><div class="play-badge"><i class="fa-solid fa-play"></i></div></div>
+          <div class="video-tag">Demo 8</div>
+        </div>
+        <div class="video-item" onclick="openLightboxVideo('video9.mp4')">
+          <video src="video9.mp4" preload="metadata" muted playsinline></video>
+          <div class="video-play-overlay"><div class="play-badge"><i class="fa-solid fa-play"></i></div></div>
+          <div class="video-tag">Demo 9</div>
+        </div>
+        <div class="video-item" onclick="openLightboxVideo('video10.mp4')">
+          <video src="video10.mp4" preload="metadata" muted playsinline></video>
+          <div class="video-play-overlay"><div class="play-badge"><i class="fa-solid fa-play"></i></div></div>
+          <div class="video-tag">Demo 10</div>
+        </div>
+        <div class="video-item" onclick="openLightboxVideo('video11.mp4')">
+          <video src="video11.mp4" preload="metadata" muted playsinline></video>
+          <div class="video-play-overlay"><div class="play-badge"><i class="fa-solid fa-play"></i></div></div>
+          <div class="video-tag">Demo 11</div>
+        </div>
+        <div class="video-item" onclick="openLightboxVideo('video12.mp4')">
+          <video src="video12.mp4" preload="metadata" muted playsinline></video>
+          <div class="video-play-overlay"><div class="play-badge"><i class="fa-solid fa-play"></i></div></div>
+          <div class="video-tag">Demo 12</div>
+        </div>
+        <div class="video-item" onclick="openLightboxVideo('video13.mp4')">
+          <video src="video13.mp4" preload="metadata" muted playsinline></video>
+          <div class="video-play-overlay"><div class="play-badge"><i class="fa-solid fa-play"></i></div></div>
+          <div class="video-tag">Demo 13</div>
+        </div>
+        <div class="video-item" onclick="openLightboxVideo('video14.mp4')">
+          <video src="video14.mp4" preload="metadata" muted playsinline></video>
+          <div class="video-play-overlay"><div class="play-badge"><i class="fa-solid fa-play"></i></div></div>
+          <div class="video-tag">Demo 14</div>
+        </div>
+        <div class="video-item" onclick="openLightboxVideo('video15.mp4')">
+          <video src="video15.mp4" preload="metadata" muted playsinline></video>
+          <div class="video-play-overlay"><div class="play-badge"><i class="fa-solid fa-play"></i></div></div>
+          <div class="video-tag">Demo 15</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 25 PHOTOS WORK GALLERY SECTION (photo1.jpg to photo25.jpg) -->
+    <div class="section" id="gallery">
+      <div class="section-header">Our Portfolio (25 Sample Works)</div>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox('photo1.jpg')"><img src="photo1.jpg" alt="Design 1" loading="lazy" onerror="handleImgError(this, ['photo1.jpeg', 'photo1.png', 'photo1.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo2.jpg')"><img src="photo2.jpg" alt="Design 2" loading="lazy" onerror="handleImgError(this, ['photo2.jpeg', 'photo2.png', 'photo2.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo3.jpg')"><img src="photo3.jpg" alt="Design 3" loading="lazy" onerror="handleImgError(this, ['photo3.jpeg', 'photo3.png', 'photo3.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo4.jpg')"><img src="photo4.jpg" alt="Design 4" loading="lazy" onerror="handleImgError(this, ['photo4.jpeg', 'photo4.png', 'photo4.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo5.jpg')"><img src="photo5.jpg" alt="Design 5" loading="lazy" onerror="handleImgError(this, ['photo5.jpeg', 'photo5.png', 'photo5.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo6.jpg')"><img src="photo6.jpg" alt="Design 6" loading="lazy" onerror="handleImgError(this, ['photo6.jpeg', 'photo6.png', 'photo6.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo7.jpg')"><img src="photo7.jpg" alt="Design 7" loading="lazy" onerror="handleImgError(this, ['photo7.jpeg', 'photo7.png', 'photo7.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo8.jpg')"><img src="photo8.jpg" alt="Design 8" loading="lazy" onerror="handleImgError(this, ['photo8.jpeg', 'photo8.png', 'photo8.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo9.jpg')"><img src="photo9.jpg" alt="Design 9" loading="lazy" onerror="handleImgError(this, ['photo9.jpeg', 'photo9.png', 'photo9.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo10.jpg')"><img src="photo10.jpg" alt="Design 10" loading="lazy" onerror="handleImgError(this, ['photo10.jpeg', 'photo10.png', 'photo10.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo11.jpg')"><img src="photo11.jpg" alt="Design 11" loading="lazy" onerror="handleImgError(this, ['photo11.jpeg', 'photo11.png', 'photo11.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo12.jpg')"><img src="photo12.jpg" alt="Design 12" loading="lazy" onerror="handleImgError(this, ['photo12.jpeg', 'photo12.png', 'photo12.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo13.jpg')"><img src="photo13.jpg" alt="Design 13" loading="lazy" onerror="handleImgError(this, ['photo13.jpeg', 'photo13.png', 'photo13.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo14.jpg')"><img src="photo14.jpg" alt="Design 14" loading="lazy" onerror="handleImgError(this, ['photo14.jpeg', 'photo14.png', 'photo14.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo15.jpg')"><img src="photo15.jpg" alt="Design 15" loading="lazy" onerror="handleImgError(this, ['photo15.jpeg', 'photo15.png', 'photo15.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo16.jpg')"><img src="photo16.jpg" alt="Design 16" loading="lazy" onerror="handleImgError(this, ['photo16.jpeg', 'photo16.png', 'photo16.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo17.jpg')"><img src="photo17.jpg" alt="Design 17" loading="lazy" onerror="handleImgError(this, ['photo17.jpeg', 'photo17.png', 'photo17.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo18.jpg')"><img src="photo18.jpg" alt="Design 18" loading="lazy" onerror="handleImgError(this, ['photo18.jpeg', 'photo18.png', 'photo18.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo19.jpg')"><img src="photo19.jpg" alt="Design 19" loading="lazy" onerror="handleImgError(this, ['photo19.jpeg', 'photo19.png', 'photo19.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo20.jpg')"><img src="photo20.jpg" alt="Design 20" loading="lazy" onerror="handleImgError(this, ['photo20.jpeg', 'photo20.png', 'photo20.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo21.jpg')"><img src="photo21.jpg" alt="Design 21" loading="lazy" onerror="handleImgError(this, ['photo21.jpeg', 'photo21.png', 'photo21.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo22.jpg')"><img src="photo22.jpg" alt="Design 22" loading="lazy" onerror="handleImgError(this, ['photo22.jpeg', 'photo22.png', 'photo22.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo23.jpg')"><img src="photo23.jpg" alt="Design 23" loading="lazy" onerror="handleImgError(this, ['photo23.jpeg', 'photo23.png', 'photo23.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo24.jpg')"><img src="photo24.jpg" alt="Design 24" loading="lazy" onerror="handleImgError(this, ['photo24.jpeg', 'photo24.png', 'photo24.JPG'])"></div>
+        <div class="gallery-item" onclick="openLightbox('photo25.jpg')"><img src="photo25.jpg" alt="Design 25" loading="lazy" onerror="handleImgError(this, ['photo25.jpeg', 'photo25.png', 'photo25.JPG'])"></div>
+      </div>
+    </div>
+
+    <!-- INQUIRY FORM (Formspree Integration) -->
+    <div class="section" id="enquiry">
+      <div class="section-header">Order / Inquire Now</div>
+      <form action="https://formspree.io/f/meeynezw" method="POST" class="inquiry-form">
+        <input type="text" name="_gotcha" style="display:none">
+        
+        <input type="text" name="name" placeholder="Your Name / Mandal Name" required>
+        <input type="tel" name="phone" placeholder="WhatsApp / Mobile Number" required>
+        <input type="email" name="email" placeholder="Email Address (Optional)">
+        <textarea name="message" rows="3" placeholder="Service required (e.g. Digital Card, Pavati Pustak, Pamphlet)..." required></textarea>
+        <button type="submit">Send Inquiry</button>
       </form>
     </div>
 
-    <div class="content-box" style="padding-top: 0; text-align: center;">
-      <h3 class="section-title" style="text-align: left;">Connect With Us</h3>
-      <div class="social-links">
-        <a href="https://instagram.com/siddhidigital1" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://wa.me/919970279238" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="https://siddhidigitalinvite.in/" target="_blank"><i class="fa-solid fa-globe"></i></a>
-        <a href="mailto:contact@siddhidigitalinvite.in"><i class="fa-solid fa-envelope"></i></a>
+    <!-- SHARE SECTION WITH HD PRINT BUTTON -->
+    <div class="section" id="share" style="border-bottom: none;">
+      <div class="section-header">Share Profile</div>
+      <div class="share-box">
+        <p style="font-size: 12px; color: var(--muted); margin-bottom: 6px;">Scan to open profile directly:</p>
+        <img id="qrCode" class="qr-img" src="" alt="Profile QR Code">
+        
+        <div style="margin: 8px 0 12px;">
+          <a href="javascript:void(0)" onclick="downloadHDQR()" style="display: inline-block; background: var(--primary); color: #fff; padding: 7px 16px; border-radius: 6px; font-size: 11.5px; font-weight: 600; text-decoration: none;">
+            <i class="fa-solid fa-download"></i> Download QR for Print
+          </a>
+        </div>
+
+        <div class="share-direct-wrap">
+          <label>Share digital card to any WhatsApp number:</label>
+          <div class="share-input-group">
+            <input type="tel" id="targetPhone" placeholder="Enter 10-digit mobile number">
+            <button onclick="sendToNumber()"><i class="fa-brands fa-whatsapp"></i> Send</button>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="footer">
+    <!-- FOOTER -->
+    <div style="text-align: center; padding: 20px; font-size: 11.5px; color: #94a3b8; background: #fafafa; border-top: 1px solid #e2e8f0;">
       © 2026 Siddhi Digital. All Rights Reserved.
     </div>
 
   </div>
 
+  <!-- FLOATING BOTTOM NAVIGATION (With Video Tab) -->
+  <nav class="bottom-bar">
+    <a href="#home" class="bottom-tab active">
+      <i class="fa-solid fa-house"></i>
+      <span>HOME</span>
+    </a>
+    <a href="#services" class="bottom-tab">
+      <i class="fa-solid fa-layer-group"></i>
+      <span>SERVICES</span>
+    </a>
+    <a href="#videos" class="bottom-tab">
+      <i class="fa-solid fa-circle-play"></i>
+      <span>VIDEOS</span>
+    </a>
+    <a href="#gallery" class="bottom-tab">
+      <i class="fa-solid fa-images"></i>
+      <span>GALLERY</span>
+    </a>
+    <a href="#enquiry" class="bottom-tab">
+      <i class="fa-solid fa-envelope"></i>
+      <span>ENQUIRY</span>
+    </a>
+    <a href="#share" class="bottom-tab">
+      <i class="fa-solid fa-share-nodes"></i>
+      <span>SHARE</span>
+    </a>
+  </nav>
+
+  <!-- LIGHTBOX MODAL (Image & Video Compatible) -->
   <div id="lightbox" class="lightbox-modal" onclick="closeLightbox()">
     <span class="lightbox-close">&times;</span>
-    <img id="lightbox-img" class="lightbox-content" src="" alt="Zoomed Work">
+    <img id="lightbox-img" class="lightbox-content" src="" alt="Zoomed Sample" onclick="event.stopPropagation()" style="display:none;">
+    <video id="lightbox-video" class="lightbox-content" controls autoplay playsinline onclick="event.stopPropagation()" style="display:none;"></video>
   </div>
 
   <script>
+    // Multi-format fallback loader for images
+    function handleImgError(img, fallbacks) {
+      if (!img.dataset.tryIndex) {
+        img.dataset.tryIndex = "0";
+      }
+      let idx = parseInt(img.dataset.tryIndex);
+      if (idx < fallbacks.length) {
+        img.dataset.tryIndex = (idx + 1).toString();
+        img.src = fallbacks[idx];
+      } else {
+        img.onerror = null;
+      }
+    }
+
+    // Dynamic QR generation
+    document.addEventListener("DOMContentLoaded", () => {
+      const currentUrl = window.location.href;
+      document.getElementById("qrCode").src = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(currentUrl)}`;
+    });
+
+    // Image Lightbox
     function openLightbox(imageSrc) {
       const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
-      lightboxImg.src = imageSrc;
+      const img = document.getElementById('lightbox-img');
+      const vid = document.getElementById('lightbox-video');
+
+      vid.pause();
+      vid.style.display = 'none';
+      img.src = imageSrc;
+      img.style.display = 'block';
       lightbox.style.display = 'flex';
     }
 
+    // Video Lightbox
+    function openLightboxVideo(videoSrc) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      const vid = document.getElementById('lightbox-video');
+
+      img.style.display = 'none';
+      vid.src = videoSrc;
+      vid.style.display = 'block';
+      lightbox.style.display = 'flex';
+      vid.play();
+    }
+
+    // Close Lightbox
     function closeLightbox() {
-      document.getElementById('lightbox').style.display = 'none';
+      const lightbox = document.getElementById('lightbox');
+      const vid = document.getElementById('lightbox-video');
+      vid.pause();
+      vid.currentTime = 0;
+      lightbox.style.display = 'none';
+    }
+
+    // WhatsApp Share
+    function shareOnWhatsApp() {
+      const currentUrl = window.location.href;
+      const message = `Check out *Siddhi Digital* - Smart Business Cards, Invitations & Ganpati Mandal Digital Solutions:\n\n${currentUrl}`;
+      const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // Direct Share to 10-Digit Number
+    function sendToNumber() {
+      let phone = document.getElementById('targetPhone').value.trim().replace(/\D/g, '');
+      if (!phone) {
+        alert('Please enter a valid phone number');
+        return;
+      }
+      if (phone.length === 10) {
+        phone = '91' + phone;
+      }
+      const currentUrl = window.location.href;
+      const message = `Hello, check out the Digital Card & Services of *Siddhi Digital*:\n\n${currentUrl}`;
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    // Download High-Resolution QR (1000x1000 px) for printing
+    function downloadHDQR() {
+      const currentUrl = window.location.href;
+      const hdQrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&data=${encodeURIComponent(currentUrl)}`;
+      
+      fetch(hdQrUrl)
+        .then(response => response.blob())
+        .then(blob => {
+          const blobUrl = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = blobUrl;
+          link.download = 'Siddhi_Digital_QR_Print.png';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        })
+        .catch(() => {
+          window.open(hdQrUrl, '_blank');
+        });
+    }
+
+    // Native vCard Contact File Generator
+    function downloadVCard() {
+      const vcardData = 
+`BEGIN:VCARD
+VERSION:3.0
+FN:Siddhi Digital
+ORG:Siddhi Digital
+TITLE:Digital Invitations & Smart Cards
+TEL;TYPE=CELL,VOICE:+919970279238
+EMAIL;TYPE=INTERNET:poojahukkeri99@gmail.com
+URL:https://siddhidigitalinvite.in/
+END:VCARD`;
+
+      const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'Siddhi_Digital.vcf');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
   </script>
 
